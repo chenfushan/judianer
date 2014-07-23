@@ -1,0 +1,40 @@
+.date-link{
+	display: block;
+	height: 40px;
+	width: 50px;
+	text-decoration: none;
+	text-align: center;
+	padding: 8px 0 0;
+}
+
+div#position-table{
+	width: 50%;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#cal-table{
+	border-spacing: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#cal-table td{
+/*	width: 5%;*/
+	text-align: center;
+	border-top: 1px solid #c8cacc;
+}
+
+.week-title{
+	height: 30px;
+}
+
+.cal-number{
+	font-size: 18px;
+	color: black;
+}
+
+.td-selected{
+	border: 3px solid #fb0;
+}

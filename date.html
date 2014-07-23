@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calendar</title>
+	<script src="./js/jquery.js"></script>
+	<script src="./js/date.js"></script>
+	<script>
+		$(function() {
+			var daySelected = '';
+			$(function() {
+				$(".date-link").click({ds:daySelected}, function(event) {
+				//	alert($(this).attr("date"));
+					$(this).toggleClass('td-selected');
+				});
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="./css/date.css">
+</head>
+<body>
+	<div id="page">
+		<div id="header"></div>
+		<div id="body">
+			<div id="position-table">
+				<table id="cal-table">
+					<thead>
+						<tr class="title">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="week">
+							<td id="sunday" class="week-title">周日</td>
+							<td id="monday" class="week-title">周一</td>
+							<td id="tuesday" class="week-title">周二</td>
+							<td id="wednesday" class="week-title">周三</td>
+							<td id="thursday" class="week-title">周四</td>
+							<td id="friday" class="week-title">周五</td>
+							<td id="satday" class="week-title">周六</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>			
+		</div>
+		<div id="footer">
+			<!-- <a href="javascript:;" class="test-click">I am test</a> -->
+		</div>
+	</div>
+</body>
+</html>
