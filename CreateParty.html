@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>聚点儿</title>
+	<style type="text/css">
+		h1{font-family:"微软雅黑";font-size:20px;margin:20px 0;;border-bottom:solid 1px #ccc;padding-bottom:20px;letter-spacing:2px;}
+		img#logo{width: 100%; height: 100%}
+		#tj input{width: 90%; padding: 1%;background:url(0) no-repeat; font-size: 15px;margin-top: 20px;}
+	</style>
+	<script src="./js/jquery.js"></script>
+	<script src="./js/CreateParty.js"></script>	
+	<link rel="stylesheet" href="./css/CreateParty.css">
+</head>
+<body>
+<div style="position:absolute; left:0; top:0; width:100%; height:100%;" align="center">
+		<!-- <img src="./pic/logo.png" width=100% height=100%> -->
+	</div> 
+	<div style="position:absolute; left:0; top:0; width:100%; text-align:center">
+		<div id="clock">
+			<h1 style="color:#000;">创建聚会:</h1>
+				<form action="" id="tj">
+					<input type="text" id="partyName" name="parthName" maxlength="20" placeholder="聚会名称"/>
+					<input type="text" id="partyAddr" name="partyAddr" maxlength="40" placeholder="聚会地点"/><br>
+					<!-- <span><a href="">添加一个地点</a></span><br> -->
+					<!-- <input type="text" id="name" name="username" maxlength="5" placeholder="姓名"/>
+					<input type="text" id="address" name="address" maxlength="2" placeholder="宿舍楼号"/> -->
+					<input type="button" value="完成" id="submit"/>
+				</form>
+			</div>
+		</div>
+	</div> 
+	<div id="footer" style="position:absolute;left:0; bottom:3%; width:100%; text-align:center">
+		<span style="font-size:10px; color:#000;">@聚点儿</span>
+	</div>
+</div>
+</body>
+</html>

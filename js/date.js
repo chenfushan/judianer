@@ -129,7 +129,7 @@ $(document).ready(function() {
 				innerHtml = innerHtml + "<tr class=\"date-line\">";
 			}
 			if(i < firstWeek){
-				innerHtml = innerHtml + "<td class=\"date-day\"><a href=\"javascript:;\" hidefocus=\"true\" class=\"date-link\"></td>";
+				innerHtml = innerHtml + "<td class=\"date-day\"><a href=\"javascript:;\" hidefocus=\"true\" class=\"date-nolink\"></td>";
 			}
 			if (i >= firstWeek && i < MonthDay+firstWeek) {
 				calDate = Year + "-" + Month + "-" + (i+1-firstWeek);
@@ -148,18 +148,78 @@ $(document).ready(function() {
 		$('#cal-table tbody').append(innerHtml);
 	}
 	var j = 0;
-	var DateSelected = {};
-	$('.date-link').live('click',function() {
+	var DateSelected = '';
+	$('.date-link').on('click',function() {
 			// alert("click");
 		$('.date-link').removeClass('td-selected');
 		$(this).addClass('td-selected');
-		var date;
-		date = $(this).attr('date');
-		alert(date);
+		// var date;
+		DateSelected = $(this).attr('date');
+		// alert(date);
 	});
 	function removeClass_selected () {
 		$('.date-link').removeClass('td-selected');
 	}
+
+	$('#done').click(function() {
+		var name = $('#user').val();
+		// alert(name);
+		if (DateSelected == '') {
+			alert("Please select a date!");
+			return;
+		}
+		if (name =='') {
+			alert("Please input your name!");
+			return;
+		}
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}else{
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		var url = "DateSelected="+DateSelected+"&name="+name;
+		alert(url);
+		xmlhttp.open("POST","./php/create.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var Info = xmlhttp.responseText;
+				if (Info == "false") {
+					alert("Error!\nPlease mail to chenfushan1992@gmail.com");
+				}else if(Info == "empty"){
+					alert("Please input the party on the pre page!");
+				}else{
+					alert("Success!\nPlease wait for jump~"+Info);
+					// location.href = "./party.html?partyID="+Info;
+				}
+			}
+		}
+		xmlhttp.send(url);
+
+
+		// var xmlhttp;
+		// 	if (window.XMLHttpRequest) {
+		// 		xmlhttp = new XMLHttpRequest();
+		// 	}else{
+		// 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		// 	}
+		// 	var url = "name="+name+"&num="+num+"&address="+address+"&phone="+phone;
+		// 	// alert(ur"l);
+		// 	xmlhttp.open("POST","tongji_result.php",true);
+		// 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		// 	xmlhttp.onreadystatechange = function() {
+		// 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		// 			var Info = xmlhttp.responseText;
+		// 			if (Info == "true") {
+		// 				alert("提交成功，非常感谢！")
+		// 			}else{
+		// 				alert(Info);
+		// 			}
+		// 		}
+		// 	}
+		// 	xmlhttp.send(url);
+	});
 });
 
 	
