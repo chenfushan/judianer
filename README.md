@@ -12,3 +12,4 @@ send email to me.
 chenfushan1992@gmail.com
 
 write by chen on 2014/07.24
+friend Xiajun Luo and Chao Wu
