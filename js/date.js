@@ -179,7 +179,7 @@ $(document).ready(function() {
 			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		var url = "DateSelected="+DateSelected+"&name="+name;
-		alert(url);
+		// alert(url);
 		xmlhttp.open("POST","./php/create.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.onreadystatechange = function() {
@@ -190,35 +190,20 @@ $(document).ready(function() {
 				}else if(Info == "empty"){
 					alert("Please input the party on the pre page!");
 				}else{
-					alert("Success!\nPlease wait for jump~"+Info);
-					// location.href = "./party.html?partyID="+Info;
+					if (Info == "false80") {
+						alert("insert error!");
+					}else{
+						alert("Success!\nPlease wait for jump~");
+						// alert(Info);
+						location.href = "./party.html?partyID="+Info;
+					}
+					
 				}
 			}
 		}
 		xmlhttp.send(url);
 
 
-		// var xmlhttp;
-		// 	if (window.XMLHttpRequest) {
-		// 		xmlhttp = new XMLHttpRequest();
-		// 	}else{
-		// 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		// 	}
-		// 	var url = "name="+name+"&num="+num+"&address="+address+"&phone="+phone;
-		// 	// alert(ur"l);
-		// 	xmlhttp.open("POST","tongji_result.php",true);
-		// 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		// 	xmlhttp.onreadystatechange = function() {
-		// 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		// 			var Info = xmlhttp.responseText;
-		// 			if (Info == "true") {
-		// 				alert("提交成功，非常感谢！")
-		// 			}else{
-		// 				alert(Info);
-		// 			}
-		// 		}
-		// 	}
-		// 	xmlhttp.send(url);
 	});
 });
 

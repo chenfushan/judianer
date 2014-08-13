@@ -4,27 +4,31 @@
 	*/
 	class party
 	{
-		private $partyName = '';
-		private $partyAddr = '';
-		private $partyDate = '';
-		private $createUser = '';
-		function __construct($name, $addr, $date, $user)
-		{
-			$partyName = $name;
-			$partyAddr = $addr;
-			$partyDate = $date;
-			$createUser = $user;
+		function __construct() {
+			
 		}
-		public function createParty(){
+		public function createParty($partyName, $partyAddr, $partyDate, $createUser){
 			$mysql = new MySql();
-			$db = $mysql->dbConnect();
-			$query = "insert into party(partyName, partyAddr, partyDate, createDate, createUser) values('".$partyName."','".$partyAddr."','".$partyDate."',now(),'".$createUser."')";
-			$result = $db->query($query);
-			if (!$result) {
+			$db = $mysql->dbconnect();
+			if ($db == flase) {
 				return false;
 			}
-			$partyID = $db->insert_id;
-			return $partyID;
+			$query = "insert into party(partyName, partyAddr, partyDate, createDate, createUser) values('".$partyName."','".$partyAddr."','".$partyDate."',now(),'".$createUser."');";
+			// try {
+			// 	$result = $db->query($query);
+			// } catch (Exception $e) {
+			// 	return $e;
+			// }
+			$result = $db->query($query);
+			// $result = $db->query("select * from party;");
+			if (!$result) {
+				return "false80";
+			}else{
+				$partyID = $db->insert_id;
+				// $partyID = "true";
+				return $partyID;
+			}
+			
 		}
 	}
 
@@ -37,13 +41,12 @@
 		function __construct()
 		{	
 		}
-		public function dbConnect()
+		public function dbconnect()
 		{
 			$result = new mysqli('localhost','root','chenfushan','judianer');
 			if (!$result) {
 				return false;
 			}
-			$result = $result->autocommit(TRUE);
 			return $result;
 		}
 		public function resultToArray($result)
