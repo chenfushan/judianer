@@ -193,8 +193,8 @@ $(document).ready(function() {
 					if (Info == "false80") {
 						alert("insert error!");
 					}else{
-						alert("Success!\nPlease wait for jump~");
-						// alert(Info);
+						// alert("Success!\nPlease wait for jump~");
+						alert(Info);
 						location.href = "./party.html?partyID="+Info;
 					}
 					
