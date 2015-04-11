@@ -43,7 +43,7 @@
 		}
 		public function dbconnect()
 		{
-			$result = new mysqli('localhost','root','chenfushan','judianer');
+			$result = new mysqli('localhost','root','','judianer');
 			if (!$result) {
 				return false;
 			}
